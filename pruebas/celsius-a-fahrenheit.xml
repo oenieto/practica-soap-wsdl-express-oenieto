@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:con="http://localhost:3000/soap/conversiones">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <con:CelsiusAFahrenheitRequest>
+      <con:celsius>25</con:celsius>
+    </con:CelsiusAFahrenheitRequest>
+  </soapenv:Body>
+</soapenv:Envelope>
