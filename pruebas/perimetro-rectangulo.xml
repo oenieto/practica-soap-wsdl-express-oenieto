@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:geo="http://localhost:3000/soap/geometria">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <geo:PerimetroRectanguloRequest>
+      <geo:base>8</geo:base>
+      <geo:altura>5</geo:altura>
+    </geo:PerimetroRectanguloRequest>
+  </soapenv:Body>
+</soapenv:Envelope>
