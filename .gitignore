@@ -1,0 +1,14 @@
+# dependencias
+node_modules/
+
+# variables de entorno
+.env
+.env.*
+
+# logs y basura temporal
+*.log
+npm-debug.log*
+tmp/
+.DS_Store
+Thumbs.db
+.vscode/
