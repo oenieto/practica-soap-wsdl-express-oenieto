@@ -1,0 +1,17 @@
+{
+  "name": "soap-express-practica",
+  "version": "1.0.0",
+  "description": "Práctica de servicios SOAP con Express y WSDL (conversiones y geometría)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["soap", "wsdl", "express", "node"],
+  "author": "Oscar Emiliano Nieto Guerra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "soap": "^1.1.0"
+  }
+}
