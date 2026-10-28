@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Contrato del servicio de geometría: área y perímetro de un rectángulo -->
+<definitions name="GeometriaService"
+             targetNamespace="http://localhost:3000/soap/geometria"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://localhost:3000/soap/geometria"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <types>
+    <xsd:schema targetNamespace="http://localhost:3000/soap/geometria" elementFormDefault="qualified">
+
+      <!-- las dos operaciones piden base y altura -->
+      <xsd:element name="AreaRectanguloRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="base" type="xsd:double"/>
+            <xsd:element name="altura" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="AreaRectanguloResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="area" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="PerimetroRectanguloRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="base" type="xsd:double"/>
+            <xsd:element name="altura" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="PerimetroRectanguloResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="perimetro" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+    </xsd:schema>
+  </types>
+
+  <message name="AreaRectanguloInput">
+    <part name="parameters" element="tns:AreaRectanguloRequest"/>
+  </message>
+  <message name="AreaRectanguloOutput">
+    <part name="parameters" element="tns:AreaRectanguloResponse"/>
+  </message>
+
+  <message name="PerimetroRectanguloInput">
+    <part name="parameters" element="tns:PerimetroRectanguloRequest"/>
+  </message>
+  <message name="PerimetroRectanguloOutput">
+    <part name="parameters" element="tns:PerimetroRectanguloResponse"/>
+  </message>
+
+  <portType name="GeometriaPortType">
+    <operation name="AreaRectangulo">
+      <input message="tns:AreaRectanguloInput"/>
+      <output message="tns:AreaRectanguloOutput"/>
+    </operation>
+    <operation name="PerimetroRectangulo">
+      <input message="tns:PerimetroRectanguloInput"/>
+      <output message="tns:PerimetroRectanguloOutput"/>
+    </operation>
+  </portType>
+
+  <binding name="GeometriaBinding" type="tns:GeometriaPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <operation name="AreaRectangulo">
+      <soap:operation soapAction="http://localhost:3000/soap/geometria/AreaRectangulo"/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+    </operation>
+
+    <operation name="PerimetroRectangulo">
+      <soap:operation soapAction="http://localhost:3000/soap/geometria/PerimetroRectangulo"/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+    </operation>
+  </binding>
+
+  <service name="GeometriaService">
+    <documentation>Calcula el área y el perímetro de un rectángulo</documentation>
+    <port name="GeometriaPort" binding="tns:GeometriaBinding">
+      <soap:address location="http://localhost:3000/soap/geometria"/>
+    </port>
+  </service>
+
+</definitions>
