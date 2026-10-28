@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://localhost:3000/soap/geometria">
+  <soap:Body>
+    <AreaRectanguloResponse xmlns="http://localhost:3000/soap/geometria">
+      <area>40</area>
+    </AreaRectanguloResponse>
+  </soap:Body>
+</soap:Envelope>
